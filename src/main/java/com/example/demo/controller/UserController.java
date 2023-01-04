@@ -19,7 +19,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    // 비로그인 회원에게 tmp 닉네임 부여 & 생성까지
     @GetMapping("/create_userName")
     @ResponseBody
     public ResponseEntity createUserName(){
