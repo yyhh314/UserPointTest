@@ -24,14 +24,11 @@ public class UserController {
     @ResponseBody
     public ResponseEntity createUserName(){
         String tmpName = userService.makeRandomName();
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("nickname", tmpName);
-        return ResponseEntity.status(HttpStatus.OK).body(hashMap.get("nickname"));
+        return ResponseEntity.status(HttpStatus.OK).body(new NicknameDto(tmpName));
     }
 
     @GetMapping("/users")
     @ResponseBody
-    // 나 뺴야함
     public ResponseEntity<List<UserPointDto>> getAllPoints(){
         return ResponseEntity.ok(userService.getAllPoint());
     }

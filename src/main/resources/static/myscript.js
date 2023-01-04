@@ -1,4 +1,7 @@
 window.onload = function(){
+
+
+
     const btn_create = document.getElementById("btn-create");
     const btn_get = document.getElementById("btn-get");
     if(btn_get){
@@ -6,10 +9,11 @@ window.onload = function(){
             var url = "/create_userName"
             fetch(url).then(response => {
                 alert("nickname generated!");
-                alert(response.json);
-                document.getElementById("input-nickname") = response.json.nickname;
+                return response.json();
+            }).then(result => {
+                console.log(result);
+                document.getElementById("input-nickname").value = result.nickname;
             });
-
         })
     }
 
